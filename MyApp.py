@@ -17,7 +17,7 @@ st.write('\n')
 
 selection = st.sidebar.selectbox(
     label="Elige la visualización",
-    options=["Medidas estadisticas", "Grafica de tiempo 2016-2020", "Boxplots", "Treemap"],
+    options=["Grafica de tiempo 2016-2020", "Boxplots", "Treemap"],
     index=0,
 )
 
