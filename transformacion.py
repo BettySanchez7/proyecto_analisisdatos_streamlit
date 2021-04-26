@@ -5,11 +5,11 @@ import numpy as np
 
 
 #Lectura de los Datos
-CO_mensual = pd.read_csv('datos/promedios_mensuales/CO_mensual.csv')
-NO2_mensual = pd.read_csv('datos/promedios_mensuales/NO2_mensual.csv')
-O3_mensual = pd.read_csv('datos/promedios_mensuales/O3_mensual.csv')
-PM10_mensual = pd.read_csv('datos/promedios_mensuales/PM10_mensual.csv')
-SO2_mensual = pd.read_csv('datos/promedios_mensuales/SO2_mensual.csv')
+CO_mensual = pd.read_csv('CO_mensual.csv')
+NO2_mensual = pd.read_csv('NO2_mensual.csv')
+O3_mensual = pd.read_csv('O3_mensual.csv')
+PM10_mensual = pd.read_csv('PM10_mensual.csv')
+SO2_mensual = pd.read_csv('SO2_mensual.csv')
 
 listacontam = [CO_mensual,NO2_mensual,O3_mensual,PM10_mensual,SO2_mensual]
 for contam in listacontam:
