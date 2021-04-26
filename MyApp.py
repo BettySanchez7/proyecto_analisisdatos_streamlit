@@ -70,6 +70,6 @@ if selection == "Boxplots":
 
 if selection == "Treemap":
     lista_zonas = ['suroeste','sureste','noreste','noroeste','centro']
-for zona in lista_zonas:
-    fig = px.treemap( Df_total_anual, path=['fecha','categoria'], values=zona, title=zona)
-    st.plotly_chart(fig)
+    for zona in lista_zonas:
+        fig = px.treemap( Df_total_anual, path=['fecha','categoria'], values=zona, title=zona)
+        st.plotly_chart(fig)
