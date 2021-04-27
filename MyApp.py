@@ -19,7 +19,7 @@ selection = st.sidebar.selectbox(
 )
 
 if selection == "Información general del proyecto":
-    st.markdown('''## :chart_with_upwards_trend: Analisis de calidad de Aire en la Ciudad de México 2016-2020
+    st.markdown('''## :chart_with_upwards_trend: Analisis de calidad de Aire en la Ciudad de México 2005-2020
 _________________________________________________________________________________________________
 
 En la lista que tienes a tu izquierda podrás elegir la visualización que quieras ver, en cada una de ella encontraras información relavante del tema. 
