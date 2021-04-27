@@ -14,7 +14,7 @@ from streamlit_folium import folium_static
 
 selection = st.sidebar.selectbox(
     label="Elige la visualización",
-    options=["Información general del proyecto","Mapa de zonas","Graficos de densidad", "Concentración anual", "Valores atipicos y distribuciones(Boxplots)", "Correlaciones", "Niveles de concentración","Treemap"],
+    options=["Información general del proyecto","Mapa de zonas","Concentración anual", "Valores atipicos y distribuciones(Boxplots)", "Correlaciones", "Niveles de concentración","Treemap"],
     index=0,
 )
 
@@ -69,42 +69,7 @@ elif selection == "Mapa de zonas":
         legend_name='IMECA'
     ).add_to(m)
     folium_static(m)
-elif selection == "Graficos de densidad":
-    st.markdown('# Densidades MONOXIDO DE CARBONO CO')
-    for i in lista:
-        fig, axes = plt.subplots(figsize=(1,1), sharex=True, sharey=True)
-        sns.kdeplot(x=CO_mensual[i], ax=axes)
-        axes.legend=i
-        st.pyplot(fig)
-    
-    st.markdown('# Densidades DIOXIDO DE NITROGENO NO2')
-    for i in lista:
-        fig, axes = plt.subplots(figsize=(1,1), sharex=True, sharey=True)
-        sns.kdeplot(x=NO2_mensual[i], ax=axes)
-        axes.legend=i
-        st.pyplot(fig)
-        
-    st.markdown('# Densidades OZONO O3')
-    for i in lista:
-        fig, axes = plt.subplots(figsize=(1,1), sharex=True, sharey=True)
-        sns.kdeplot(x=NO2_mensual[i], ax=axes)
-        axes.legend=i
-        st.pyplot(fig)
-    
-    st.markdown('# Densidades PM10')
-    for i in lista:
-        fig, axes = plt.subplots(figsize=(1,1), sharex=True, sharey=True)
-        sns.kdeplot(x=PM10_mensual[i], ax=axes)
-        axes.legend=i
-        st.pyplot(fig)
-    
-    st.markdown('# Densidades SO2')
-    for i in lista:
-        fig, axes = plt.subplots(figsize=(1,1), sharex=True, sharey=True)
-        sns.kdeplot(x=SO2_mensual[i], ax=axes)
-        axes.legend=i
-        st.pyplot(fig)
-    
+
 elif selection == "Concentración anual":
 
 
