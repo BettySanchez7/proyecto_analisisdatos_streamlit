@@ -19,7 +19,7 @@ selection = st.sidebar.selectbox(
 )
 
 if selection == "Información general del proyecto":
-    st.markdown('''## :chart_with_upwards_trend: Analisis de calidad de Aire en la Ciudad de México 2005-2020
+    st.markdown('''## :chart_with_upwards_trend: Analisis de calidad de Aire en la Ciudad de México 2016-2020
 _________________________________________________________________________________________________
 
 En la lista que tienes a tu izquierda podrás elegir la visualización que quieras ver, en cada una de ella encontraras información relavante del tema. 
@@ -55,6 +55,12 @@ Figura 1. Clasificación IMECA
 ''')
 
 elif selection == "Mapa de zonas":
+    
+    st.markdown(''' ** CONCENTRACIÓN DE CONTAMINANTES POR ZONAS ** 
+
+A continuación se buscar mostrar de manera visual la concentración de cada contaminante por zonas en la ciudad de México
+con el fin de observar en que zona se encuentra mayor concentrado cada contaminante''')
+    st.markdown(' ** Monóxido + Dióxido de carbono, promedio anual ** ')
     m = folium.Map(location = [19.4325,-99.1330],zoom_start=10, width='100%',height='100%')
 
     folium.Choropleth(
@@ -69,7 +75,72 @@ elif selection == "Mapa de zonas":
         legend_name='IMECA'
     ).add_to(m)
     folium_static(m)
+    st.markdown(' ** Dióxido de nitrógeno, promedio anual ** ')
+    m = folium.Map(location = [19.4325,-99.1330],zoom_start=10, width='100%',height='100%')
 
+    folium.Choropleth(
+        geo_data=zonas_zmvm,
+        name='Dióxido de nitrógeno, promedio anual',
+        data=df_No2,
+        columns=['index','Promedio'],
+        key_on = 'feature.id',
+        fill_color='YlGn',
+        fill_opacity=0.7,
+        line_opacity=0.8,
+        legend_name='IMECA'
+    ).add_to(m)
+    folium_static(m)
+    
+    st.markdown(' ** Ozono, promedio anual ** ')
+    
+    m = folium.Map(location = [19.4325,-99.1330],zoom_start=10, width='100%',height='100%')
+
+    folium.Choropleth(
+        geo_data=zonas_zmvm,
+        name='Ozono, promedio anual',
+        data=df_O3,
+        columns=['index','Promedio'],
+        key_on = 'feature.id',
+        fill_color='YlGn',
+        fill_opacity=0.7,
+        line_opacity=0.8,
+        legend_name='IMECA'
+    ).add_to(m)
+    folium_static(m)
+    
+    st.markdown(' ** Partículas menores a 10 micras, promedio anual ** ')
+    m = folium.Map(location = [19.4325,-99.1330],zoom_start=10, width='100%',height='100%')
+
+    folium.Choropleth(
+        geo_data=zonas_zmvm,
+        name='Partículas menores a 10 micras, promedio anual',
+        data=df_Pm10,
+        columns=['index','Promedio'],
+        key_on = 'feature.id',
+        fill_color='YlGn',
+        fill_opacity=0.7,
+        line_opacity=0.8,
+        legend_name='IMECA'
+    ).add_to(m)
+    folium_static(m)
+    st.markdown(' ** Dióxido de azufre, promedio anual, promedio anual ** ')
+    
+    
+    m = folium.Map(location = [19.4325,-99.1330],zoom_start=10, width='100%',height='100%')
+
+    folium.Choropleth(
+        geo_data=zonas_zmvm,
+        name='Dióxido de azufre, promedio anual, promedio anual',
+        data=df_So2,
+        columns=['index','Promedio'],
+        key_on = 'feature.id',
+        fill_color='YlGn',
+        fill_opacity=0.7,
+        line_opacity=0.8,
+        legend_name='IMECA'
+    ).add_to(m)
+    folium_static(m)
+    
 elif selection == "Concentración anual":
 
 
